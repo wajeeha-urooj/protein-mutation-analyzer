@@ -10,6 +10,7 @@
   <img src="https://img.shields.io/badge/pandas-Data%20Analysis-purple?logo=pandas">
   <img src="https://img.shields.io/badge/Matplotlib-Visualization-orange?logo=matplotlib">
   <img src="https://img.shields.io/badge/pytest-12%20tests-success?logo=pytest">
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_NOTEBOOK_LINK)
 </p>
 
 ---
