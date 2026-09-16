@@ -1,4 +1,3 @@
-````markdown
 # 🧬 Protein Mutation Analyzer
 
 <p align="center">
@@ -86,13 +85,9 @@ The project includes a `pytest` test suite covering:
 
 **Current test status:**
 
-`12 passed`
-
----
-
-## 🧭 Workflow
-
 ```text
+12 passed
+
                  Wild-Type Protein
                          │
                          ▼
@@ -127,13 +122,7 @@ The project includes a `pytest` test suite covering:
                │
                ▼
         📄 Result Reporting
-````
 
----
-
-## 📁 Project Structure
-
-```text
 protein-mutation-analyzer/
 │
 ├── protein_mutation/
@@ -150,24 +139,17 @@ protein-mutation-analyzer/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-```
-
----
 
 ## 🚀 Installation
 
 Clone the repository:
 
-```bash
 git clone https://github.com/wajeeha-urooj/protein-mutation-analyzer.git
 cd protein-mutation-analyzer
-```
 
 Install the required dependencies:
 
-```bash
 pip install -r requirements.txt
-```
 
 ---
 
@@ -177,9 +159,7 @@ The analyzer can compare two protein sequences directly from the command line.
 
 Example:
 
-```bash
 python -m protein_mutation.cli "ACDEFGHIK" "ACDFFGHIK"
-```
 
 The program reports:
 
