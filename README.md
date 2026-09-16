@@ -26,14 +26,14 @@ The project combines protein sequence analysis, residue-level property analysis,
 
 The development workflow uses the human **TP53 protein** as a real biological example.
 
-| Feature | Information |
-|---|---|
-| 🧬 Protein | TP53 |
-| 🌍 Organism | *Homo sapiens* |
-| 🔗 UniProt ID | P04637 |
-| 📏 Protein length | 393 aa |
-| 🧪 Example variant | p.Arg175His (R175H) |
-| 🔄 Mutation type | Amino-acid substitution |
+| Feature            | Information             |
+| ------------------ | ----------------------- |
+| 🧬 Protein         | TP53                    |
+| 🌍 Organism        | *Homo sapiens*          |
+| 🔗 UniProt ID      | P04637                  |
+| 📏 Protein length  | 393 aa                  |
+| 🧪 Example variant | p.Arg175His (R175H)     |
+| 🔄 Mutation type   | Amino-acid substitution |
 
 The R175H example demonstrates how a single amino-acid substitution can be detected computationally and how the properties of the original and substituted residues can be compared.
 
@@ -43,86 +43,97 @@ The R175H example demonstrates how a single amino-acid substitution can be detec
 
 ### 🧪 Protein Sequence Analysis
 
-- Compare wild-type and mutant protein sequences
-- Detect amino-acid substitutions
-- Identify mutation positions
-- Calculate protein length changes
-- Validate protein sequences
-- Generate mutation summaries
+* Compare wild-type and mutant protein sequences
+* Detect amino-acid substitutions
+* Identify mutation positions
+* Calculate protein length changes
+* Validate protein sequences
+* Generate mutation summaries
 
 ### 📊 Physicochemical Analysis
 
 The toolkit calculates and compares:
 
-- Molecular weight
-- Isoelectric point (pI)
-- GRAVY / hydropathy
-- Aromaticity
-- Instability index
-- Residue hydropathy
-- Residue pKa
-- Approximate residue charge at pH 7.4
+* Molecular weight
+* Isoelectric point (pI)
+* GRAVY / hydropathy
+* Aromaticity
+* Instability index
+* Residue hydropathy
+* Residue pKa
+* Approximate residue charge at pH 7.4
 
 ### 📈 Visualization
 
 The development notebook provides visual analysis of:
 
-- Mutation positions
-- Residue physicochemical differences
-- Whole-protein property differences
+* Mutation positions
+* Residue physicochemical differences
+* Whole-protein property differences
 
 ### 🧪 Automated Testing
 
 The project includes a `pytest` test suite covering:
 
-- Sequence comparison
-- Mutation detection
-- Sequence validation
-- Length changes
-- Mutation summaries
-- Residue properties
-- Protein-level property calculations
+* Sequence comparison
+* Mutation detection
+* Sequence validation
+* Length changes
+* Mutation summaries
+* Residue properties
+* Protein-level property calculations
 
 **Current test status:**
 
-```text
-12 passed
+**12 passed**
 
-                 Wild-Type Protein
-                         │
-                         ▼
-              ┌────────────────────┐
-              │ Sequence Validation │
-              └────────────────────┘
-                         │
-                         ▼
-                  Mutant Protein
-                         │
-                         ▼
-              ┌────────────────────┐
-              │ Sequence Comparison │
-              └────────────────────┘
-                         │
-               ┌─────────┴─────────┐
-               ▼                   ▼
-      Mutation Detection     Length Comparison
-               │
-               ▼
-      ┌──────────────────────────┐
-      │ Residue Property Analysis│
-      └──────────────────────────┘
-               │
-               ▼
-      ┌──────────────────────────┐
-      │ Whole-Protein Properties │
-      └──────────────────────────┘
-               │
-               ▼
-        📊 Visualization
-               │
-               ▼
-        📄 Result Reporting
+---
 
+## 🧭 Workflow
+
+```
+Wild-Type Protein
+        │
+        ▼
+┌────────────────────┐
+│ Sequence Validation │
+└────────────────────┘
+        │
+        ▼
+   Mutant Protein
+        │
+        ▼
+┌────────────────────┐
+│ Sequence Comparison │
+└────────────────────┘
+        │
+   ┌────┴────┐
+   ▼         ▼
+Mutation   Length
+Detection  Comparison
+   │
+   ▼
+┌──────────────────────────┐
+│ Residue Property Analysis│
+└──────────────────────────┘
+        │
+        ▼
+┌──────────────────────────┐
+│ Whole-Protein Properties │
+└──────────────────────────┘
+        │
+        ▼
+   📊 Visualization
+        │
+        ▼
+   📄 Result Reporting
+```
+
+---
+
+## 📁 Project Structure
+
+```
 protein-mutation-analyzer/
 │
 ├── protein_mutation/
@@ -139,17 +150,24 @@ protein-mutation-analyzer/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+```
+
+---
 
 ## 🚀 Installation
 
 Clone the repository:
 
+```
 git clone https://github.com/wajeeha-urooj/protein-mutation-analyzer.git
 cd protein-mutation-analyzer
+```
 
 Install the required dependencies:
 
+```
 pip install -r requirements.txt
+```
 
 ---
 
@@ -159,7 +177,9 @@ The analyzer can compare two protein sequences directly from the command line.
 
 Example:
 
+```
 python -m protein_mutation.cli "ACDEFGHIK" "ACDFFGHIK"
+```
 
 The program reports:
 
@@ -175,13 +195,13 @@ The program reports:
 
 Run the complete test suite:
 
-```bash
+```
 pytest -q
 ```
 
 Expected result:
 
-```text
+```
 12 passed
 ```
 
@@ -267,7 +287,7 @@ Potential future extensions include:
 
 ---
 
-##  Author
+## 👩‍💻 Author
 
 ### 👩🏻‍🔬 Wajeeha Urooj
 
@@ -278,4 +298,3 @@ Potential future extensions include:
 <p align="center">
   <i>Developed as a bioinformatics portfolio project for reproducible protein sequence analysis.</i>
 </p>
-```
