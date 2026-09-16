@@ -22,7 +22,7 @@ The project combines protein sequence analysis, residue-level property analysis,
 
 ---
 
-## 🧬 Biological Example
+## Biological Example
 
 The development workflow uses the human **TP53 protein** as a real biological example.
 
@@ -39,7 +39,7 @@ The R175H example demonstrates how a single amino-acid substitution can be detec
 
 ---
 
-## ⚙️ Key Features
+## Key Features
 
 ### 🧪 Protein Sequence Analysis
 
@@ -89,7 +89,7 @@ The project includes a `pytest` test suite covering:
 
 ---
 
-## 🧭 Workflow
+## Workflow
 
 ```
 Wild-Type Protein
@@ -258,7 +258,7 @@ Physicochemical property comparisons are computational sequence-derived measurem
 
 ---
 
-## 🔮 Future Development
+## Future Development
 
 Potential future extensions include:
 
@@ -273,7 +273,7 @@ Potential future extensions include:
 
 ---
 
-## 🛠️ Technologies
+## Technologies
 
 | Technology    | Purpose                   |
 | ------------- | ------------------------- |
@@ -287,9 +287,9 @@ Potential future extensions include:
 
 ---
 
-## 👩‍💻 Author
+##  Author
 
-### 👩🏻‍🔬 Wajeeha Urooj
+###  Wajeeha Urooj
 
 **Bioinformatics | Computational Biology**
 
