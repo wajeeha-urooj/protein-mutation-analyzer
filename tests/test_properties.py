@@ -30,7 +30,8 @@ def test_compare_residue_properties():
 def test_hydropathy_change():
     result = compare_residue_properties("R", "H")
 
-   assert abs(result["hydropathy_change"] - 1.3) < 1e-9
+    assert abs(result["hydropathy_change"] - 1.3) < 1e-9
+
 
 def test_protein_properties():
     sequence = "ACDEFGHIKLMNPQRSTVWY"
