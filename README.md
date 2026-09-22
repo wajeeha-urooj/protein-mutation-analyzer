@@ -1,15 +1,20 @@
+
 # 🧬 Protein Mutation Analyzer
+
+**A reusable Colab notebook for comparing a wild-type protein with a single-residue variant**
 
 <p align="center">
   <strong>A Python-based bioinformatics toolkit for protein mutation analysis</strong>
 </p>
 
 <p align="center">
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPOSITORY/blob/main/Protein_Mutation_Analyzer.ipynb)
   <img src="https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white">
   <img src="https://img.shields.io/badge/Biopython-Bioinformatics-green">
   <img src="https://img.shields.io/badge/pandas-Data%20Analysis-purple?logo=pandas">
   <img src="https://img.shields.io/badge/Matplotlib-Visualization-orange?logo=matplotlib">
   <img src="https://img.shields.io/badge/pytest-12%20tests-success?logo=pytest">
+  [![UniProt](https://img.shields.io/badge/Data-UniProt-orange)](https://www.uniprot.org/)
 </p>
 
 <p align="center">
@@ -20,15 +25,9 @@
 
 <div align="center">
 
-# 🧬 Protein Mutation Analyzer
 
-**A reusable Colab notebook for comparing a wild-type protein with a single-residue variant**
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPOSITORY/blob/main/Protein_Mutation_Analyzer.ipynb)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Biopython](https://img.shields.io/badge/Biopython-1.80%2B-1f9d55?logo=biopython&logoColor=white)](https://biopython.org/)
-[![UniProt](https://img.shields.io/badge/Data-UniProt-orange)](https://www.uniprot.org/)
+
 
 </div>
 
