@@ -60,7 +60,7 @@ The built-in example is **human TP53** (UniProt `P04637`) with the well-known ca
 **BLOSUM62 score:** `0`  **Grantham distance:** `29` *(conservative)*
 
 <div align="center">
-<img src="image/TP53_R175H_position.png" width="700" alt="Mutation position on the protein"/>
+<img src="image/tp53_R175H_position.png" width="700" alt="Mutation position on the protein"/>
 </div>
 
 > 💡 R175H scores as a "conservative" substitution by both measures, yet it is one of the most frequently observed TP53 mutations in cancer. Sequence-similarity scores describe the *type* of amino-acid change, not *where* it happens or what it does to the folded protein — which is exactly why this notebook does not stop there.
