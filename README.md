@@ -119,7 +119,7 @@ results_P04637_R175H/
 
 ## ⚠️ Limitations
 
-- Sequence-level only — no 3D structure, no evolutionary conservation.
+- Sequence-level only no 3D structure, no evolutionary conservation.
 - Side-chain charge is estimated from free-amino-acid pKa values; the real pKa inside a folded protein can shift.
 - BLOSUM62 and Grantham describe the *type* of substitution, not its structural position or effect.
 - The variant must be numbered against the same reference sequence that is downloaded (isoform mismatches will fail the validation step on purpose).
