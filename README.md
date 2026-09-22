@@ -51,17 +51,24 @@ The built-in example is **human TP53** (UniProt `P04637`) with the well-known ca
 <img src="image/R175H_residue_property_comparison.png" width="700" alt="Residue property comparison"/>
 </div>
 
+
+
 | Property | Arginine (wild type) | Histidine (mutant) | Change |
 |---|---:|---:|---:|
 | Molecular weight (Da) | 174.20 | 155.15 | **−19.05** |
 | Hydropathy (Kyte–Doolittle) | −4.50 | −3.20 | **+1.30** |
 | Charge at pH 7.4 | +1.00 | +0.04 | **−0.96** |
 
+
 **BLOSUM62 score:** `0`  **Grantham distance:** `29` *(conservative)*
+
+
 
 <div align="center">
 <img src="image/tp53_R175H_position.png" width="700" alt="Mutation position on the protein"/>
 </div>
+
+
 
 > 💡 R175H scores as a "conservative" substitution by both measures, yet it is one of the most frequently observed TP53 mutations in cancer. Sequence-similarity scores describe the *type* of amino-acid change, not *where* it happens or what it does to the folded protein — which is exactly why this notebook does not stop there.
 
