@@ -18,280 +18,128 @@
   </a>
 </p>
 
----
+<div align="center">
 
-## 🔬 Overview
+# 🧬 Protein Mutation Analyzer
 
-**Protein Mutation Analyzer** is a reusable Python toolkit for comparing wild-type and mutant **protein sequences** and characterizing sequence-level and physicochemical changes associated with amino-acid substitutions.
+**A reusable Colab notebook for comparing a wild-type protein with a single-residue variant**
 
-The project combines protein sequence analysis, residue-level property analysis, whole-protein physicochemical analysis, visualization, and automated testing into a reproducible bioinformatics workflow.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPOSITORY/blob/main/Protein_Mutation_Analyzer.ipynb)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Biopython](https://img.shields.io/badge/Biopython-1.80%2B-1f9d55?logo=biopython&logoColor=white)](https://biopython.org/)
+[![UniProt](https://img.shields.io/badge/Data-UniProt-orange)](https://www.uniprot.org/)
 
----
-
-## Biological Example
-
-The development workflow uses the human **TP53 protein** as a real biological example.
-
-| Feature            | Information             |
-| ------------------ | ----------------------- |
-| 🧬 Protein         | TP53                    |
-| 🌍 Organism        | *Homo sapiens*          |
-| 🔗 UniProt ID      | P04637                  |
-| 📏 Protein length  | 393 aa                  |
-| 🧪 Example variant | p.Arg175His (R175H)     |
-| 🔄 Mutation type   | Amino-acid substitution |
-
-The R175H example demonstrates how a single amino-acid substitution can be detected computationally and how the properties of the original and substituted residues can be compared.
+</div>
 
 ---
 
-## Key Features
+## 📖 Overview
 
-### 🧪 Protein Sequence Analysis
+This notebook downloads a real protein sequence from **UniProt**, builds a mutant sequence from a variant you give it (for example `R175H`), and compares the two computationally: residue properties, substitution scores, whole-protein properties, and UniProt annotation context.
 
-* Compare wild-type and mutant protein sequences
-* Detect amino-acid substitutions
-* Identify mutation positions
-* Calculate protein length changes
-* Validate protein sequences
-* Generate mutation summaries
+The built-in example is **human TP53** (UniProt `P04637`) with the well-known cancer variant **p.Arg175His (R175H)** — but the notebook works for any protein and any single amino-acid substitution. Change two settings and it runs on your own protein.
 
-### 📊 Physicochemical Analysis
-
-The toolkit calculates and compares:
-
-* Molecular weight
-* Isoelectric point (pI)
-* GRAVY / hydropathy
-* Aromaticity
-* Instability index
-* Residue hydropathy
-* Residue pKa
-* Approximate residue charge at pH 7.4
-
-### 📈 Visualization
-
-The development notebook provides visual analysis of:
-
-* Mutation positions
-* Residue physicochemical differences
-* Whole-protein property differences
-
-### 🧪 Automated Testing
-
-The project includes a `pytest` test suite covering:
-
-* Sequence comparison
-* Mutation detection
-* Sequence validation
-* Length changes
-* Mutation summaries
-* Residue properties
-* Protein-level property calculations
-
-**Current test status:**
-
-**12 passed**
+> ⚠️ **Scope:** protein sequence analysis only. No DNA/nucleotide analysis, no structure prediction, no pathogenicity prediction.
 
 ---
 
-## Workflow
+## ✨ What it does
+
+| Step | What happens |
+|:---:|---|
+| 🌐 | Downloads the reference sequence from **UniProt** and validates it |
+| ✅ | Confirms the wild-type residue is really at the given position |
+| 🧪 | Builds and validates the mutant sequence |
+| 🔍 | Detects substitutions, insertions and deletions (self-tested first) |
+| ⚖️ | Compares residue properties — weight, hydropathy, polarity, **charge at pH 7.4** |
+| 📊 | Scores the substitution with **BLOSUM62** and the **Grantham distance** |
+| 🧫 | Compares whole-protein properties (MW, pI, GRAVY, instability index…) |
+| 📈 | Plots net charge across the full pH range |
+| 🗺️ | Shows where the mutation sits relative to annotated UniProt domains |
+| 🔁 | Compares several variants of the same protein side by side |
+| 💾 | Exports tables, figures, a text report and a metadata file |
+
+---
+
+## 📷 Example output — TP53 R175H
+
+<div align="center">
+<img src="images/R175H_residue_property_comparison.png" width="700" alt="Residue property comparison"/>
+</div>
+
+| Property | Arginine (wild type) | Histidine (mutant) | Change |
+|---|---:|---:|---:|
+| Molecular weight (Da) | 174.20 | 155.15 | **−19.05** |
+| Hydropathy (Kyte–Doolittle) | −4.50 | −3.20 | **+1.30** |
+| Charge at pH 7.4 | +1.00 | +0.04 | **−0.96** |
+
+**BLOSUM62 score:** `0`  **Grantham distance:** `29` *(conservative)*
+
+<div align="center">
+<img src="images/TP53_R175H_position.png" width="700" alt="Mutation position on the protein"/>
+</div>
+
+> 💡 R175H scores as a "conservative" substitution by both measures, yet it is one of the most frequently observed TP53 mutations in cancer. Sequence-similarity scores describe the *type* of amino-acid change, not *where* it happens or what it does to the folded protein — which is exactly why this notebook does not stop there.
+
+---
+
+## 🚀 How to use it
+
+1. Click **Open in Colab** above.
+2. In **Section 2**, set:
+   ```python
+   UNIPROT_ID = "P04637"   # any UniProt accession
+   VARIANT    = "R175H"    # or "p.R175H" or "p.Arg175His"
+   ```
+3. **Runtime → Run all**. An internet connection is required (UniProt lookup).
+4. Results are saved to `results_<accession>_<variant>/` and offered as a zip download.
+
+---
+
+## 📁 Output files
 
 ```
-Wild-Type Protein
-        │
-        ▼
-┌────────────────────┐
-│ Sequence Validation │
-└────────────────────┘
-        │
-        ▼
-   Mutant Protein
-        │
-        ▼
-┌────────────────────┐
-│ Sequence Comparison │
-└────────────────────┘
-        │
-   ┌────┴────┐
-   ▼         ▼
-Mutation   Length
-Detection  Comparison
-   │
-   ▼
-┌──────────────────────────┐
-│ Residue Property Analysis│
-└──────────────────────────┘
-        │
-        ▼
-┌──────────────────────────┐
-│ Whole-Protein Properties │
-└──────────────────────────┘
-        │
-        ▼
-   📊 Visualization
-        │
-        ▼
-   📄 Result Reporting
+results_P04637_R175H/
+├── P04637.fasta                          reference sequence, exactly as downloaded
+├── mutation_comparison.csv               substitutions / insertions / deletions found
+├── protein_property_comparison.csv       whole-protein properties, WT vs mutant
+├── amino_acid_property_change.csv        residue-level property changes
+├── variant_comparison.csv                multi-variant comparison table
+├── uniprot_features_at_position.csv      UniProt domains/sites at the mutation
+├── mutation_summary.csv                  one-row summary of the whole analysis
+├── protein_mutation_report.txt           plain-text report
+├── analysis_metadata.json                UniProt version, date, checksum, package versions
+└── *.png                                 all figures, print quality (300 dpi)
 ```
 
 ---
 
-## 📁 Project Structure
+## 🧰 Built with
 
-```
-protein-mutation-analyzer/
-│
-├── protein_mutation/
-│   ├── __init__.py
-│   ├── analyzer.py
-│   ├── properties.py
-│   └── cli.py
-│
-├── tests/
-│   ├── test_analyzer.py
-│   └── test_properties.py
-│
-├── Protein_Mutation_Analyzer_Development.ipynb
-├── requirements.txt
-├── .gitignore
-└── README.md
-```
+<div align="left">
+<img src="https://img.shields.io/badge/Biopython-sequence%20parsing-1f9d55?logo=biopython&logoColor=white" />
+<img src="https://img.shields.io/badge/pandas-data%20tables-150458?logo=pandas&logoColor=white" />
+<img src="https://img.shields.io/badge/NumPy-numerics-013243?logo=numpy&logoColor=white" />
+<img src="https://img.shields.io/badge/Matplotlib-figures-11557C?logo=plotly&logoColor=white" />
+<img src="https://img.shields.io/badge/UniProt%20REST%20API-data%20source-orange" />
+</div>
 
 ---
 
-## 🚀 Installation
+## ⚠️ Limitations
 
-Clone the repository:
-
-```
-git clone https://github.com/wajeeha-urooj/protein-mutation-analyzer.git
-cd protein-mutation-analyzer
-```
-
-Install the required dependencies:
-
-```
-pip install -r requirements.txt
-```
+- Sequence-level only — no 3D structure, no evolutionary conservation.
+- Side-chain charge is estimated from free-amino-acid pKa values; the real pKa inside a folded protein can shift.
+- BLOSUM62 and Grantham describe the *type* of substitution, not its structural position or effect.
+- The variant must be numbered against the same reference sequence that is downloaded (isoform mismatches will fail the validation step on purpose).
+- **Does not predict pathogenicity.** For that, see AlphaFold DB, PolyPhen-2, SIFT, CADD, AlphaMissense, ClinVar and gnomAD.
 
 ---
 
-## 💻 Command-Line Usage
 
-The analyzer can compare two protein sequences directly from the command line.
 
-Example:
-
-```
-python -m protein_mutation.cli "ACDEFGHIK" "ACDFFGHIK"
-```
-
-The program reports:
-
-* 🧬 Wild-type and mutant sequence lengths
-* 📏 Length difference
-* 🔄 Detected amino-acid substitutions
-* 📊 Whole-protein physicochemical properties
-* 🧪 Residue-level property changes for a single substitution
-
----
-
-## 🧪 Running the Tests
-
-Run the complete test suite:
-
-```
-pytest -q
-```
-
-Expected result:
-
-```
-12 passed
-```
-
----
-
-## 📓 Development Notebook
-
-The notebook **Protein_Mutation_Analyzer_Development.ipynb** demonstrates the complete analysis workflow using the human TP53 R175H example.
-
-### Notebook Workflow
-
-1. 🧬 Retrieve the TP53 reference sequence from UniProt
-2. 🔍 Inspect and validate the reference sequence
-3. 📍 Verify the mutation position
-4. 🧪 Generate the mutant sequence
-5. ✅ Validate the mutant sequence
-6. 🔄 Detect sequence differences
-7. 📏 Compare protein lengths
-8. ⚗️ Analyze residue physicochemical properties
-9. 📊 Compare whole-protein properties
-10. 📈 Visualize mutation-related changes
-11. 📤 Export analysis results
-
----
-
-## 📤 Outputs
-
-The analysis can generate:
-
-* 📋 Mutation tables
-* 🧬 Sequence comparison results
-* 📊 Physicochemical property tables
-* 📈 Visualization figures
-* 📄 Text-based analysis reports
-* 📁 CSV result files
-
----
-
-## 🧠 Scientific Scope
-
-This project focuses on **protein sequence-level mutation analysis**.
-
-It currently does not directly predict:
-
-* Protein structure
-* Variant pathogenicity
-* Clinical outcome
-* Protein folding
-* Functional impact using machine learning
-
-The current length-change analysis reports differences in protein sequence length but does not perform advanced pairwise alignment for detailed insertion/deletion characterization.
-
-Physicochemical property comparisons are computational sequence-derived measurements and should not be interpreted as experimental measurements.
-
----
-
-## Future Development
-
-Potential future extensions include:
-
-* 📂 FASTA-file input
-* 🧬 Pairwise sequence alignment for robust indel detection
-* 🔢 Multiple mutation support
-* 📊 Batch variant analysis
-* 🧩 Structural mapping using PDB structures
-* 🔗 Integration with public variant databases
-* 📄 Automated report generation
-* 🤖 Machine-learning-based functional impact prediction
-
----
-
-## Technologies
-
-| Technology    | Purpose                   |
-| ------------- | ------------------------- |
-| 🐍 Python     | Core programming          |
-| 🧬 Biopython  | Protein sequence analysis |
-| 🐼 pandas     | Data processing           |
-| 🔢 NumPy      | Numerical analysis        |
-| 📊 Matplotlib | Visualization             |
-| 🌐 Requests   | UniProt API retrieval     |
-| 🧪 pytest     | Automated testing         |
-
----
+</div>
 
 ##  Author
 
@@ -301,6 +149,3 @@ Potential future extensions include:
 
 ---
 
-<p align="center">
-  <i>Developed as a bioinformatics portfolio project for reproducible protein sequence analysis.</i>
-</p>
